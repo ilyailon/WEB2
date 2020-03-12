@@ -1,0 +1,472 @@
+<html>
+<!--
+ Анимация намеренно сделана некорректно!
+ Необходимо выяснить что именно здесь некорректно и сделать правильно.
+ Данный пример создан чтобы показать как должен выглядеть лоадер
+ -->
+<head>
+    <style>
+        body {
+            background: #343434;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader_text {
+            font-family: sans-serif;
+            font-size: 15px;
+            color: #fafafa;
+            animation: 3s ease-in-out infinite textZoomInOut;
+        }
+
+        .loader_round {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            position: absolute;
+            background: #ccc;
+        }
+
+        .round1 {
+            animation: 3s ease-in-out infinite moveround1;
+        }
+
+        .round2 {
+            animation: 3s ease-in-out infinite moveround2;
+        }
+
+        .round3 {
+            animation: 3s ease-in-out infinite moveround3;
+        }
+
+        .round4 {
+            animation: 3s ease-in-out infinite moveround4;
+        }
+
+        @keyframes moveround1 {
+            0% {
+                transform: translate(-50px, -50px);
+            }
+
+            25% {
+                transform: translate(50px, -50px);
+            }
+
+            50% {
+                transform: translate(50px, 50px);
+            }
+
+            75% {
+                transform: translate(-50px, 50px);
+            }
+
+            100% {
+                transform: translate(-50px, -50px);
+            }
+        }
+
+        @keyframes moveround2 {
+            0% {
+                transform: translate(50px, -50px);
+            }
+
+            25% {
+                transform: translate(50px, 50px);
+            }
+
+            50% {
+                transform: translate(-50px, 50px);
+            }
+
+            75% {
+                transform: translate(-50px, -50px);
+            }
+
+            100% {
+                transform: translate(50px, -50px);
+            }
+        }
+
+        @keyframes moveround3 {
+            0% {
+                transform: translate(50px, 50px);
+            }
+
+            25% {
+                transform: translate(-50px, 50px);
+            }
+
+            50% {
+                transform: translate(-50px, -50px);
+            }
+
+            75% {
+                transform: translate(50px, -50px);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        @keyframes moveround4 {
+            0% {
+                transform: translate(-50px, 50px);
+            }
+
+            25% {
+                transform: translate(-50px, -50px);
+            }
+
+            50% {
+                transform: translate(50px, -50px);
+            }
+
+            75% {
+                transform: translate(50px, 50px);
+            }
+
+            100% {
+                transform: translate(-50px, 50px);
+            }
+        }
+
+        @keyframes textZoomInOut {
+            0% {
+                font-size: 10px;
+            }
+
+            25% {
+                font-size: 17px;
+            }
+
+            50% {
+                font-size: 10px;
+            }
+
+            75% {
+                font-size: 17px;
+            }
+
+            100% {
+                font-size: 10px;
+            }
+        }
+
+
+        .container_balls {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+        }
+
+        .ball {
+            width: 10px;
+            height: 10px;
+            margin: 10px auto;
+            border-radius: 50px;
+        }
+
+        .ball:nth-child(1) {
+            background: red;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(2) {
+            background: orange;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(3) {
+            background: yellow;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(4) {
+            background: green;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(5) {
+            background: dodgerblue;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(6) {
+            background: mediumblue;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(7) {
+            background: darkviolet;
+            animation: left 1s infinite ease-in-out;
+        }
+        .ball:nth-child(8) {
+            background: red;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(9) {
+            background: #ff00b1;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(10) {
+            background: #ff0011;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(11) {
+            background: #777980;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(12) {
+            background: #ff87bf;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(13) {
+            background: #1790cd;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        .ball:nth-child(14) {
+            background: #afd353;
+            animation: left 1s infinite ease-in-out;
+        }
+
+        @-webkit-keyframes right {
+            0% {
+                transform: translate(-15px);
+            }
+            50% {
+                transform: translate(15px);
+            }
+            100% {
+                transform: translate(-15px);
+            }
+        }
+
+        @-webkit-keyframes left {
+            0% {
+                transform: translate(15px);
+            }
+            50% {
+                transform: translate(-15px);
+            }
+            100% {
+                transform: translate(15px);
+            }
+        }
+
+        div.class1 {
+
+            border-radius: 500%;
+            box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+            height: 5em;
+            width: 5em;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: red;
+            animation: circle 2s;
+        }
+
+        /* Animation properties */
+        .star {
+            animation: star 10s ease-out infinite;
+        }
+        .wars {
+            animation: wars 10s ease-out infinite;
+        }
+        .byline span {
+            animation: spin-letters 10s linear infinite;
+        }
+        .byline {
+            animation: move-byline 10s linear infinite;
+        }
+
+        /* Keyframes */
+        @keyframes star {
+            0% {
+                opacity: 0;
+                transform: scale(1.5) translateY(-0.75em);
+            }
+            20% {
+                opacity: 1;
+            }
+            89% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateZ(-1000em);
+            }
+        }
+
+        @keyframes wars {
+            0% {
+                opacity: 0;
+                transform: scale(1.5) translateY(0.5em);
+            }
+            20% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateZ(-1000em);
+            }
+        }
+
+        @keyframes spin-letters {
+            0%, 10% {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+            30% {
+                opacity: 1;
+            }
+            70%, 86% {
+                transform: rotateY(0);
+                opacity: 1;
+            }
+            95%, 100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes move-byline {
+            0% {
+                transform: translateZ(5em);
+            }
+            100% {
+                transform: translateZ(0);
+            }
+        }
+
+        /* Make the 3D work on the container */
+        .starwars-demo {
+            perspective: 800px;
+            transform-style: preserve3d;
+        }
+
+        /* General styles and layout */
+        body {
+            background: #000 url(//cssanimation.rocks/demo/starwars/images/bg.jpg);
+        }
+
+        .starwars-demo {
+            height: 17em;
+            left: 50%;
+            position: absolute;
+            top: 53%;
+            transform: translate(-50%, -50%);
+            width: 34em;
+        }
+
+        .byline span {
+            display: inline-block;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .star, .wars, .byline {
+            position: absolute;
+        }
+
+        .star {
+            top: -0.75em;
+        }
+
+        .wars {
+            bottom: -0.5em;
+        }
+
+        .byline {
+            color: #fff;
+            font-family: "ITC Serif Gothic", Lato;
+            font-size: 2.25em;
+            left: -2em;
+            letter-spacing: 0.4em;
+            right: -2em;
+            text-align: center;
+            text-transform: uppercase;
+            top: 29%;
+        }
+
+        /*** Media queries for adjusting to different screen sizes ***/
+
+        @media only screen and (max-width: 600px) {
+            .starwars-demo {
+                font-size: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .starwars-demo {
+                font-size: 7px;
+            }
+        }
+
+        @keyframes circle {
+            25%   {background: oldlace;}
+            50%  {background: orange;}
+            75%  {background: pink;}
+            100% {background: red;}
+        }
+    </style>
+</head>
+<body>
+<div class="loader">
+    <span class="loader_text">LOADING</span>
+    <div class="loader_round round1"></div>
+    <div class="loader_round round2"></div>
+    <div class="loader_round round3"></div>
+    <div class="loader_round round4"></div>
+</div>
+
+<div class="container_balls">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+</div>
+
+<div class="starwars-demo">
+    <img src="//cssanimation.rocks/demo/starwars/images/star.svg" alt="Star" class="star">
+    <img src="//cssanimation.rocks/demo/starwars/images/wars.svg" alt="Wars" class="wars">
+    <h2 class="byline" id="byline">The Force Awakens</h2>
+</div>
+
+<div class="class1"></div>
+</body>
+</html>
